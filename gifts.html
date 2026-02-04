@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gifts for You 🎁</title>
+
+<style>
+body{
+  margin:0;
+  background:linear-gradient(160deg,#ff5f8a,#ff85a1);
+  color:white;
+  font-family:sans-serif;
+  text-align:center;
+}
+.gifts{
+  display:flex;
+  justify-content:center;
+  gap:30px;
+  margin-top:60px;
+}
+.gift{
+  font-size:3rem;
+  cursor:pointer;
+  animation:bounce 1.5s infinite;
+}
+@keyframes bounce{
+  50%{transform:translateY(-10px);}
+}
+</style>
+</head>
+
+<body>
+
+<h1>Just for you 💝</h1>
+<p>Tap each gift 🎁</p>
+
+<div class="gifts">
+  <div class="gift" onclick="alert('These eyes chose you 👀💖')">🎁</div>
+  <div class="gift" onclick="alert('You feel like home 🫶')">🎁</div>
+  <div class="gift" onclick="next()">🎁</div>
+</div>
+
+<script>
+function next(){
+  window.location.href="love.html";
+}
+</script>
+
+</body>
+</html>
