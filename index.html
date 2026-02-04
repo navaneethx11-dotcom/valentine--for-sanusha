@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Sanusha 💖</title>
+
+<style>
+body{
+  margin:0;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(160deg,#ff5f8a,#ff85a1);
+  font-family:-apple-system,BlinkMacSystemFont,sans-serif;
+  color:white;
+  text-align:center;
+  overflow:hidden;
+}
+button{
+  padding:14px 28px;
+  font-size:1.1rem;
+  border:none;
+  border-radius:30px;
+  cursor:pointer;
+}
+#no{
+  position:absolute;
+}
+</style>
+</head>
+
+<body>
+
+<div>
+  <h1>Sanusha 💕</h1>
+  <h2>Will you be my Valentine?</h2><br>
+  <button onclick="yes()">Yes 💖</button>
+  <button id="no">No 😏</button>
+</div>
+
+<script>
+const no = document.getElementById("no");
+
+function moveNo(){
+  no.style.left = Math.random()*80 + "vw";
+  no.style.top  = Math.random()*80 + "vh";
+}
+
+no.addEventListener("mouseover", moveNo);
+no.addEventListener("click", moveNo);
+
+function yes(){
+  window.location.href = "gifts.html";
+}
+</script>
+
+</body>
+</html>
