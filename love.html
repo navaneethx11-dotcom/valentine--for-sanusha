@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Love 💋</title>
+
+<style>
+body{
+  margin:0;
+  height:100vh;
+  background:linear-gradient(160deg,#ff5f8a,#ff2d6f);
+  overflow:hidden;
+  color:white;
+  font-family:sans-serif;
+  text-align:center;
+}
+.heart{
+  position:fixed;
+  top:-10vh;
+  font-size:24px;
+  animation:fall linear forwards;
+}
+@keyframes fall{
+  to{transform:translateY(110vh);opacity:0;}
+}
+.kiss{
+  position:fixed;
+  font-size:28px;
+  animation:kiss 1.8s forwards;
+}
+@keyframes kiss{
+  to{transform:translateY(-80px) scale(1.4);opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<h1>Feel my love 💋</h1>
+<p>Tap anywhere</p>
+
+<script>
+document.addEventListener("click", e=>{
+  const kiss=document.createElement("div");
+  kiss.className="kiss";
+  kiss.innerText="💋";
+  kiss.style.left=e.clientX+"px";
+  kiss.style.top=e.clientY+"px";
+  document.body.appendChild(kiss);
+  setTimeout(()=>kiss.remove(),1800);
+});
+
+setInterval(()=>{
+  const h=document.createElement("div");
+  h.className="heart";
+  h.innerText="❤️";
+  h.style.left=Math.random()*100+"vw";
+  h.style.animationDuration=(3+Math.random()*3)+"s";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),6000);
+},500);
+
+setTimeout(()=>{
+  window.location.href="forever.html";
+},12000);
+</script>
+
+</body>
+</html>
