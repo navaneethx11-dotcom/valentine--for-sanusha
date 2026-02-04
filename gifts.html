@@ -14,6 +14,14 @@ body{
   text-align:center;
 }
 
+h1{
+  margin-top:40px;
+}
+
+p{
+  opacity:0.9;
+}
+
 .gifts{
   display:flex;
   justify-content:center;
@@ -28,14 +36,16 @@ body{
 }
 
 @keyframes bounce{
+  0%,100%{transform:translateY(0);}
   50%{transform:translateY(-10px);}
 }
 
+/* Modal */
 .modal{
   display:none;
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.8);
+  background:rgba(0,0,0,0.8);
   justify-content:center;
   align-items:center;
   z-index:999;
@@ -50,9 +60,25 @@ body{
   max-width:360px;
 }
 
+.modal-content h2{
+  margin-top:0;
+}
+
 img{
   max-width:100%;
   border-radius:12px;
+  margin:10px 0;
+}
+
+button{
+  margin-top:15px;
+  padding:10px 20px;
+  border:none;
+  border-radius:20px;
+  background:#ff5f8a;
+  color:white;
+  font-size:1rem;
+  cursor:pointer;
 }
 </style>
 </head>
@@ -60,7 +86,7 @@ img{
 <body>
 
 <h1>Just for you 💝</h1>
-<p>Tap each gift 🎁</p>
+<p>(Tap a gift 🎁)</p>
 
 <div class="gifts">
   <div class="gift" onclick="openGift(1)">🎁</div>
@@ -68,8 +94,9 @@ img{
   <div class="gift" onclick="openGift(3)">🎁</div>
 </div>
 
+<!-- Modal -->
 <div class="modal" id="modal" onclick="closeModal()">
-  <div class="modal-content" id="content"></div>
+  <div class="modal-content" id="content" onclick="event.stopPropagation()"></div>
 </div>
 
 <script>
@@ -79,22 +106,35 @@ function openGift(type){
 
   if(type === 1){
     content.innerHTML = `
-      <h2>Look closely 👀</h2>
-      <img src="eyes.jpg">
-      <p>These eyes chose you, Sanusha 💖</p>
+      <h2>Just a feeling 💝</h2>
+      <p>
+        Some people don’t just enter your life…<br>
+        they change it.<br><br>
+        You’re that person to me, Sanusha ❤️
+      </p>
     `;
   }
 
   if(type === 2){
     content.innerHTML = `
       <h2>A secret 💌</h2>
-      <p>You didn’t become special…<br>You already were.</p>
+      <p>
+        I didn’t fall for you all at once.<br>
+        I slowly realized I was already yours.
+      </p>
     `;
   }
 
   if(type === 3){
-    window.location.href = "love.html";
-    return;
+    content.innerHTML = `
+      <h2>Look closely 👀</h2>
+      <img src="eyes.jpg">
+      <p>
+        These eyes chose you, Sanusha 💖<br>
+        And they still do — every single day.
+      </p>
+      <button onclick="goNext()">Continue ❤️</button>
+    `;
   }
 
   modal.style.display = "flex";
@@ -102,6 +142,10 @@ function openGift(type){
 
 function closeModal(){
   document.getElementById("modal").style.display = "none";
+}
+
+function goNext(){
+  window.location.href = "love.html";
 }
 </script>
 
