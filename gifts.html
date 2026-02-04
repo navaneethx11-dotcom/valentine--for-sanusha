@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,22 +10,49 @@ body{
   margin:0;
   background:linear-gradient(160deg,#ff5f8a,#ff85a1);
   color:white;
-  font-family:sans-serif;
+  font-family:-apple-system,BlinkMacSystemFont,sans-serif;
   text-align:center;
 }
+
 .gifts{
   display:flex;
   justify-content:center;
   gap:30px;
   margin-top:60px;
 }
+
 .gift{
   font-size:3rem;
   cursor:pointer;
   animation:bounce 1.5s infinite;
 }
+
 @keyframes bounce{
   50%{transform:translateY(-10px);}
+}
+
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.8);
+  justify-content:center;
+  align-items:center;
+  z-index:999;
+}
+
+.modal-content{
+  background:white;
+  color:#333;
+  padding:20px;
+  border-radius:16px;
+  width:90%;
+  max-width:360px;
+}
+
+img{
+  max-width:100%;
+  border-radius:12px;
 }
 </style>
 </head>
@@ -36,14 +63,45 @@ body{
 <p>Tap each gift 🎁</p>
 
 <div class="gifts">
-  <div class="gift" onclick="alert('These eyes chose you 👀💖')">🎁</div>
-  <div class="gift" onclick="alert('You feel like home 🫶')">🎁</div>
-  <div class="gift" onclick="next()">🎁</div>
+  <div class="gift" onclick="openGift(1)">🎁</div>
+  <div class="gift" onclick="openGift(2)">🎁</div>
+  <div class="gift" onclick="openGift(3)">🎁</div>
+</div>
+
+<div class="modal" id="modal" onclick="closeModal()">
+  <div class="modal-content" id="content"></div>
 </div>
 
 <script>
-function next(){
-  window.location.href="love.html";
+function openGift(type){
+  const modal = document.getElementById("modal");
+  const content = document.getElementById("content");
+
+  if(type === 1){
+    content.innerHTML = `
+      <h2>Look closely 👀</h2>
+      <img src="eyes.jpg">
+      <p>These eyes chose you, Sanusha 💖</p>
+    `;
+  }
+
+  if(type === 2){
+    content.innerHTML = `
+      <h2>A secret 💌</h2>
+      <p>You didn’t become special…<br>You already were.</p>
+    `;
+  }
+
+  if(type === 3){
+    window.location.href = "love.html";
+    return;
+  }
+
+  modal.style.display = "flex";
+}
+
+function closeModal(){
+  document.getElementById("modal").style.display = "none";
 }
 </script>
 
